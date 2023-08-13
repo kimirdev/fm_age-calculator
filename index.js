@@ -8,6 +8,26 @@ const yearGroup = document.getElementsByClassName("year-group")[0];
 
 const submitButton = document.getElementById("submit-button");
 
+function daysInMonth(m, y) {
+  // m is 0 indexed: 0-11
+  switch (m) {
+    case 1:
+      return (y % 4 == 0 && y % 100) || y % 400 == 0 ? 29 : 28;
+    case 8:
+    case 3:
+    case 5:
+    case 10:
+      return 30;
+    default:
+      return 31;
+  }
+}
+
+function isValid(d, m, y) {
+  console.log(m >= 0 && m < 12 && d > 0 && d <= daysInMonth(m, y), "ISVALID");
+  return m >= 0 && m < 12 && d > 0 && d <= daysInMonth(m - 1, y);
+}
+
 const inputHandler = (input, group, length, max, min) => {
   return () => {
     if (input.value.length > length) {
@@ -37,16 +57,18 @@ const groups = [dayGroup, monthGroup, yearGroup];
 const inputs = [dayInput, monthInput, yearInput];
 
 submitButton.addEventListener("click", () => {
-  if (
-    groups.some((g) => g.classList.contains("invalid")) ||
-    inputs.some((i) => i.value == "")
-  ) {
+  if (groups.some((g) => g.classList.contains("invalid"))) {
     return;
   }
 
   const dayVal = dayInput.value;
   const monthVal = monthInput.value;
   const yearVal = yearInput.value;
+
+  if (!isValid(dayVal, monthVal, yearVal)) {
+    groups.forEach((g) => g.classList.add("invalid"));
+    return;
+  }
 
   const today = new Date();
   const birthday = new Date(yearVal, monthVal - 1, dayVal);
