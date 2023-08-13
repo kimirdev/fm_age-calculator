@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./index.css">
+  
+  <title>Frontend Mentor | Age calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <!-- <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style> -->
+</head>
+<body>
+
+  <section class="card">
+    <div class="input">
+      <label class="input-group day-group">
+        <span>DAY</span>
+        <input type="number" id="day-in" placeholder="DD" />
+        <span class="error day-error hidden">Must be a valid day</span>
+        <span class="required day-required hidden">This field is required</span>
+      </label>
+      <label class="input-group month-group">
+        <span>MONTH</span>
+        <input type="number" id="month-in" placeholder="MM" />
+        <span class="error month-error hidden">Must be a valid month</span>
+        <span class="required month-required hidden">This field is required</span>
+      </label>
+      <label class="input-group year-group">
+        <span>YEAR</span>
+        <input type="number" id="year-in" placeholder="YYYY" />
+        <span class="error year-error hidden">Must be in the past</span>
+        <span class="required year-required hidden">This field is required</span>
+      </label>
+    </div>
+    <div class="submit">
+      <div class="divider"></div>
+      <button type="button" id="submit-button" >
+    </div>
+    <div class="output">
+      <p><span class="number" id="years-out"></span> years</p>
+      <p><span class="number" id="month-out"></span> months</p>
+      <p><span class="number" id="days-out"></span> days</p>
+    </div>
+  </section>
+  
+  <footer class="attribution">
+    <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. </p>
+    <p>Coded by <a href="https://github.com/pythagoras1206" target="_blank">Igor</a>.</p>
+  </footer>
+
+  <script src="./index.js"></script>
+</body>
+</html>

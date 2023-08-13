@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;0,800;1,400;1,700;1,800&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Poppins";
+  font-weight: bold;
+  background-color: hsl(0, 0%, 94%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.card {
+  background-color: hsl(0, 0%, 100%);
+  padding: 58px;
+  width: 840px;
+  border-radius: 20px;
+  border-bottom-right-radius: 150px;
+}
+@media (min-width: 320px) and (max-width: 757px) {
+  .card {
+    width: auto;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+}
+
+.input {
+  display: flex;
+  gap: 28px;
+}
+@media (min-width: 320px) and (max-width: 757px) {
+  .input {
+    gap: 16px;
+  }
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+.input-group span {
+  color: hsl(0, 1%, 44%);
+  font-size: 14px;
+  margin-bottom: 10px;
+  letter-spacing: 0.2rem;
+}
+.input-group span.error.hidden, .input-group span.required.hidden {
+  display: none;
+}
+.input-group input {
+  font-family: "Poppins";
+  border: 1px solid hsl(0, 0%, 86%);
+  outline-color: hsl(0, 0%, 86%);
+  width: 158px;
+  height: 72px;
+  border-radius: 10px;
+  font-size: 32px;
+  padding-left: 18px;
+  font-weight: bold;
+}
+@media (min-width: 320px) and (max-width: 757px) {
+  .input-group input {
+    width: 86px;
+    padding-left: 10px;
+    font-size: 24px;
+  }
+}
+.input-group input::-webkit-outer-spin-button, .input-group input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.input-group input[type=number] {
+  appearance: textfield;
+}
+.input-group.invalid span {
+  color: hsl(0, 100%, 67%);
+}
+.input-group.invalid input {
+  border: 1px solid hsl(0, 100%, 67%);
+  outline-color: hsl(0, 100%, 67%);
+}
+.input-group.invalid span.error:not(.hidden), .input-group.invalid span.required:not(.hidden) {
+  margin-top: 8px;
+  letter-spacing: 0;
+  display: block;
+  font-weight: normal;
+  font-style: italic;
+  font-size: 12px;
+  color: hsl(0, 100%, 67%);
+}
+@media (min-width: 320px) and (max-width: 757px) {
+  .input-group.invalid span.error:not(.hidden), .input-group.invalid span.required:not(.hidden) {
+    font-size: 8px;
+  }
+}
+
+.submit {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+@media (min-width: 320px) and (max-width: 757px) {
+  .submit {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+}
+@media (min-width: 758px) and (max-width: 1439px) {
+  .submit {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+}
+.submit .divider {
+  z-index: 1;
+  position: absolute;
+  top: 47px;
+  width: 100%;
+  border: 1px hsl(0, 0%, 86%) solid;
+}
+.submit button {
+  z-index: 2;
+  position: relative;
+  background-color: hsl(259, 100%, 65%);
+  background-image: url(./assets/images/icon-arrow.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-size: 44px;
+  width: 94px;
+  margin-left: auto;
+  height: 94px;
+  border-radius: 50%;
+  border: none;
+  transition: all 0.08s linear;
+}
+@media (min-width: 320px) and (max-width: 757px) {
+  .submit button {
+    margin: 0 auto;
+  }
+}
+.submit button:hover {
+  background-color: hsl(0, 100%, 67%);
+  cursor: pointer;
+}
+
+.output p {
+  font-size: 102px;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 108px;
+  color: hsl(0, 0%, 8%);
+  margin: 0;
+  cursor: default;
+}
+@media (min-width: 320px) and (max-width: 757px) {
+  .output p {
+    font-size: 58px;
+    line-height: 62px;
+  }
+}
+.output p .number {
+  color: hsl(259, 100%, 65%);
+  transition: background-color 0.08s linear;
+}
+.output p .number:hover {
+  color: hsl(0, 100%, 67%);
+}
+
+.attribution {
+  margin-top: 30px;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(259, 100%, 65%);
+  text-decoration: none;
+}
+
+@property --day {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+#days-out {
+  transition: --day 1s;
+  counter-reset: day var(--day);
+}
+
+#days-out::after {
+  content: counter(day);
+}
+
+@property --month {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+#month-out {
+  transition: --month 1s;
+  counter-reset: month var(--month);
+}
+
+#month-out::after {
+  content: counter(month);
+}
+
+@property --year {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+#years-out {
+  transition: --year 1s;
+  counter-reset: year var(--year);
+}
+
+#years-out::after {
+  content: counter(year);
+}
+
+/*# sourceMappingURL=index.css.map */
